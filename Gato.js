@@ -32,8 +32,14 @@ function HStatDisplay(messsage) {
 function listener () {
     document.querySelector('container'.addEventListener ('click', handleCellClick))
 }
-function handleCellClick (clickEvent){
+
+function handleCellClick (clickEvent) {
     const clickedCell = clickEvent.target
-    if ( clickedCell.classList.container)
-        const clickedCellIndex = Array.from(clickedCell)
+    if ( clickedCell.classList.contains ('bloque')){
+        const clickedCellIndex = Array.from(clickedCell.parentMode.children).indexOf(clickedCell)
+    if (gameState[clickedCellIndex] !== '' || !gameActive) {
+        return
+    }
+    HandleCellPlayed (clickedCell, clickedCellIndex)
+    handleResultValidation ()
 }
